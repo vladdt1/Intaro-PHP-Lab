@@ -1,0 +1,25 @@
+body{
+    background: rgb(89, 194, 89);
+}
+
+.cont{
+    margin-top: 10%;
+    border: 0.05em solid red;
+    width:100%;
+    display: grid;
+    justify-content: center;
+    background-color: aquamarine;
+    height: 200px;
+}
+
+input{
+    margin-top: 10px;
+    width: 150%;
+    height: 20%;
+}
+
+button{
+    margin-top: 10px;
+    width: 30%;
+    height: 30%;
+}
