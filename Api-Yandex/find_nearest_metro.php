@@ -1,10 +1,11 @@
 <?php  
+$ini_arr = parse_ini_file("token.ini", true);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['address']))  {  
     // Проверяем, был ли отправлен HTTP POST запрос и присутствует ли переменная "address" в массиве POST 
     $address = htmlspecialchars($_POST['address']);  
     // Получаем значение переменной "address" из массива POST и экранируем специальные символы
     $parameters = array( 
-      'apikey' => '59e1f998-8d62-4ab3-8cde-df2b8af2df52', 
+      'apikey' => $ini_arr['apikey'], 
       'geocode' => $address, 
       'format' => 'json' 
     ); 
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['address']))  {
     $cord = str_replace(" ", ",", $obj['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']); 
     // Получаем координаты места, на которое указывает адрес
     $parameters = array( 
-      'apikey' => '59e1f998-8d62-4ab3-8cde-df2b8af2df52', 
+      'apikey' => $ini_arr['apikey'], 
       'geocode' => $cord, 
       'kind' => 'metro', 
       'format' => 'json' 
