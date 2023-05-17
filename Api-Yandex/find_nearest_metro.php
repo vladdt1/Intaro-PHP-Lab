@@ -33,8 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['address']))  {
     // Декодируем полученный JSON-ответ в массив
  
     $metro = $obj['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['name']; 
-    // Получаем название ближайшей станции метро из ответа
-    echo $metro; 
+    $metro_cord = str_replace(" ", ",", $obj['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']); 
+    // Получаем название ближайшей станции метро из ответа 
+    echo "( Структурированный адрес: " . $address . " )"; 
+    echo "( Ближайшее метро: " . $metro . " )\n "; 
+    echo "( Координаты: " . $metro_cord . " )";
     // Выводим результат в браузере
 }  
 ?>
